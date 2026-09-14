@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using AttendanceManagementSystem.Model;
-namespace AttendanceManagementSystem.Database
+using ManagementSystem.Model;
+namespace ManagementSystem.Database
 {
     public class ApplicationDb : DbContext
     {
