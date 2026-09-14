@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using AttendanceManagementSystem.Model;
-using AttendanceManagementSystem.AttendanceRepositories;
+using ManagementSystem.Model;
+using ManagementSystem.AttendanceRepositories;
     [ApiController]
     [Route("[controller]")]
     public class AttendanceController : ControllerBase
