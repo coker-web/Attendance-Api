@@ -1,16 +1,17 @@
-﻿using System.Security.Principal;
-
-namespace Attendance
+﻿using AttendanceManagementSystem.Model;
+using AttendanceManagementSystem.Database;
+namespace AttendanceManagementSystem.AttendanceList
 {
     public class AttendanceList
     {
-        List<Attendance> _attendance = new List<Attendance>();
-
-        public int NextId { get; set; } = 1;
-
+        private readonly ApplicationDb _context;
+        public AttendanceList(ApplicationDb context)
+        {
+            _context = context;
+        }
         public Attendance GetById(int id)
         {
-            var attendance = _attendance.FirstOrDefault(x => x.Id == id);
+            var attendance = _context.Attendances.FirstOrDefault(x => x.Id == id);
             if (attendance == null)
             {
                 return null!;
@@ -19,18 +20,17 @@ namespace Attendance
         }
         public List<Attendance> GetAllAttendance()
         {
-            return _attendance.ToList();
-           
+            return _context.Attendances.ToList();
         }
         public Attendance CreateAttendance(Attendance attends)
         {
-            attends.Id = NextId++;
-           _attendance.Add(attends);
+            _context.Add(attends);
+            _context.SaveChanges();
             return attends;
         }
         public Attendance UpdateAttendance(Attendance attends, int id)
         {
-            var attendance = _attendance.FirstOrDefault(x => x.Id == id);
+            var attendance = _context.Attendances.FirstOrDefault(x => x.Id == id);
             if (attendance == null)
             {
                 return null!;
@@ -38,17 +38,18 @@ namespace Attendance
             attendance.Name = attends.Name;
             attendance.RegistrationNumber = attends.RegistrationNumber;
             attendance.Date = attends.Date;
-
+            _context.SaveChanges();
             return attendance;
         }
         public bool Remove(int id)
         {
-            var attendance = _attendance.FirstOrDefault(x => x.Id == id);
+            var attendance = _context.Attendances.FirstOrDefault(x => x.Id == id);
             if (attendance == null)
             {
                 return false;
             }
-            _attendance.Remove(attendance);
+            _context.Attendances.Remove(attendance);
+            _context.SaveChanges();
             return true;
 
         }

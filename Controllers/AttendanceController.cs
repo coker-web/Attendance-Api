@@ -1,9 +1,6 @@
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata.Ecma335;
-
-namespace Attendance.Controllers
-{
+using AttendanceManagementSystem.Model;
+using AttendanceManagementSystem.AttendanceList;
     [ApiController]
     [Route("[controller]")]
     public class AttendanceController : ControllerBase
@@ -49,4 +46,3 @@ namespace Attendance.Controllers
             return false;
         }
     }
-}

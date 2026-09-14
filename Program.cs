@@ -1,4 +1,6 @@
-using Attendance;
+using Microsoft.EntityFrameworkCore;
+using AttendanceManagementSystem.AttendanceList;
+using AttendanceManagementSystem.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +10,10 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<AttendanceList>();
+builder.Services.AddDbContext<ApplicationDb>(option=>
+option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddScoped<AttendanceList>();
 
 var app = builder.Build();
 
