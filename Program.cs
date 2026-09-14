@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using AttendanceManagementSystem.AttendanceRepositories;
-using AttendanceManagementSystem.Database;
+using ManagementSystem.AttendanceRepositories;
+using ManagementSystem.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
