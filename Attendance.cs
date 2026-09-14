@@ -1,4 +1,4 @@
-namespace Attendance
+namespace ManagementSystem
 {
     public class Attendance
     {
