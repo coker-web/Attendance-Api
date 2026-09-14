@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using AttendanceManagementSystem.AttendanceList;
+using AttendanceManagementSystem.AttendanceRepositories;
 using AttendanceManagementSystem.Database;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDb>(option=>
 option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
 ));
-builder.Services.AddScoped<AttendanceList>();
+builder.Services.AddScoped<AttendanceRepository>();
 
 var app = builder.Build();
 

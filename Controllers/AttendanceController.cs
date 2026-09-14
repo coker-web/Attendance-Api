@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using AttendanceManagementSystem.Model;
-using AttendanceManagementSystem.AttendanceList;
+using AttendanceManagementSystem.AttendanceRepositories;
     [ApiController]
     [Route("[controller]")]
     public class AttendanceController : ControllerBase
     {
-        private readonly AttendanceList _attendance;
-        public AttendanceController(AttendanceList attendance)
+        private readonly AttendanceRepository _attendance;
+        public AttendanceController(AttendanceRepository attendance)
         {
             _attendance = attendance;
         }
