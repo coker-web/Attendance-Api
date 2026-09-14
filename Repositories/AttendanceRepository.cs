@@ -1,6 +1,6 @@
-﻿using AttendanceManagementSystem.Model;
-using AttendanceManagementSystem.Database;
-namespace AttendanceManagementSystem.Repositories
+﻿using ManagementSystem.Model;
+using ManagementSystem.Database;
+namespace ManagementSystem.Repositories
 {
     public class AttendanceRepository
     {
