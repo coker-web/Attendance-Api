@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
-COPY ["Attendance.csproj", "./"]
-RUN dotnet restore "Attendance.csproj"
+COPY ["AttendanceManagementSystem.csproj", "./"]
+RUN dotnet restore "AttendanceManagementSystem.csproj"
 COPY . .
 WORKDIR "/src"
-RUN dotnet publish "Attendance.csproj" -c Release -o /app/publish
+RUN dotnet publish "AttendanceManagementSystem.csproj" -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 WORKDIR /app
