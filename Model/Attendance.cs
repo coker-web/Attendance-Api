@@ -1,4 +1,4 @@
-namespace AttendanceManagementSystem.Model   
+namespace ManagementSystem.Model   
 {
 public class Attendance
     {
